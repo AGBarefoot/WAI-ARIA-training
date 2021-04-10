@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Google´s Developers, Kevin Powell and Ana Galante">
+<meta name="keywords" content="WCAG, WAI-ARIA, Accessibility, Alert Button, Brazilian Sign Language, Screen Readers, Education, Apprenticeship, Equity, Tecnologies, Metalanguage.">
+<meta name="description" content="How to do Alert Button to Screen Readers. Open Source Brazilian Plugin, CSS-Variables, JS and Footer with High Contrast to Apprenticeship.">
+<meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+<title>WAI-ARIA | Important Alert</title> 
+<head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tahoma+Display:wght@900&family=Tahoma:wght@300;400&display=swap');
+
+
+        body {
+            font-size: 1.8rem;
+            font-family: Tahoma, sans-serif;  
+
+        }
+
+        #alert{
+            margin-bottom: 2rem;
+        }
+        .notification {
+            display: flexbox;
+            align-items: center;
+            padding: 1.5 rem; 
+            background-color: rgb(10, 83, 146);
+            color:aliceblue;
+            text-align:center;
+            border-radius: 2rem;
+        }
+
+        #btn {
+
+    background-color: rgb(10, 83, 146);
+    display: inline-block;
+    padding: 1em 2em;  
+    border-radius: 3rem;
+    letter-spacing: 0.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color:#fff;
+      }
+    .btn:hover,
+    .btn:focus {
+    opacity: .75;
+}
+
+
+:root{
+  --primary-color:#E0FFFF;
+  --dark-blue: #136c72;
+  
+}
+
+*,*::before,*::after{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: 'Tahoma', sans-serif;
+  line-height: 1.6;
+}
+
+.container{
+  max-width: 300rem;
+  width: 85%;
+  margin: auto;
+}
+
+.title{
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 900;
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+
+.text{
+  font-weight: 400;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+
+.box{
+  padding-top: 6em;
+  padding-bottom: 6em;
+}
+
+
+header{
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+header .hero{
+  width: 70%;
+  margin: auto;
+}
+
+header p{
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  word-spacing: 3px;
+  font-weight: 300;
+}
+
+header h1{
+  font-size: 2.25rem;
+  margin-top: 0.50em;
+}
+
+footer {
+  background-color:black ;
+  padding: 2.8rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+    </style>
+ </head>   
+<body>
+    <section class="acessibility-note">
+        <div class="container">   
+        <div class="row">
+        <div class="col-md-12">
+    <section id="alert" role="alert"> </section>
+    <button id="btn">Important Alert</button>
+    <template id="notification-tmpl">
+        <div class="notification">Acessibility is a basic right.</div>
+    </template>
+    </div>
+    </div>
+    </div>
+    </section>
+    <header>
+        <div class="hero container">
+          <p>First things first</p>
+          <h1 class="title">WCAG:<br> The Foundations for Successful Web Projects</h1>
+        </div>
+      </header>
+              <footer>
+             <div class="equity">
+                <center><div class="container">
+                   <div class="row">
+                     <div class="col-md-12">
+                         <p>Equity Tecnologies are possible: <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics" style="text-decoration:none" target=_blank><b>WAI-ARIA Basics.</b></a></p></center>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div></center>
+          <div vw class="enabled" id="PluginLibras" aria-labelledby="PluginLibras-btn">
+            <div vw-access-button class="active" role="button" ></div>
+            <div vw-plugin-wrapper tabindex="-1" >
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+          </div>
+          <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+          <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+          </script>
+       </footer>
+     </footer>
+    <script>
+        //Original Idea by Google Chrome´s Developers
+
+        const btn= document.querySelector(`#btn`);
+        const alert= document.querySelector (`#alert`);
+        const tmpl= document.querySelector (`#notification-tmpl`);
+
+        btn.onclick = function() {
+            const clone = tmpl.content.cloneNode(true);
+            alert.appendChild(clone);
+        };
+
+    </script>
+</body>
+</html>
