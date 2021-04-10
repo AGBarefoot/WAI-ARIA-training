@@ -1,2 +1,2 @@
 # WAI-ARIA-training
-Educacional Project with metalanguage for community.
+Web Accessibility`s Project with metalanguage for community.
